@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BeEgis - Home</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="src/img/logo.jpeg" alt="BeEgis Logo" class="logo">
+    </header>
+    <div id="app-container">
+        
+        <main class="screen" id="home-screen">
+            <h1>Oi, Vovô/Vovó, o que você quer fazer agora?</h1>
+            
+            <div class="button-grid">
+                <button class="btn btn-primary" onclick="navigateTo('destinos')">
+                    <span class="icon">🚗</span> Vou Sair
+                </button>
+                
+                <button class="btn btn-secondary" onclick="navigateTo('casa')">
+                    <span class="icon">🏠</span> Ir pra Casa
+                </button>
+                
+                <button class="btn btn-danger" onclick="navigateTo('ajuda')">
+                    <span class="icon">🔔</span> Preciso de Ajuda Agora!
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="src/script.js"></script>
+</body>
+</html>

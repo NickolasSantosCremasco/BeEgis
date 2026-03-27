@@ -1,0 +1,109 @@
+/* 1. IDENTIDADE E VARIÁVEIS (DNA DA MARCA) */
+:root {
+    --bg-color: #DFFF9E; 
+    --primary-btn: #88C5A1;
+    --secondary-btn: #88B4E5;
+    --danger-btn: #E57D7D;
+    --text-color: #1A1A1A;
+    --white: #FFFFFF;
+}
+
+/* 2. RESET E ACESSIBILIDADE BASE */
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar no mobile */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--white);
+    overflow-x: hidden;
+    touch-action: manipulation; /* Impede zoom de duplo toque */
+}
+
+/* 3. CONTAINER ESTRUTURAL (REPETE EM TODAS) */
+#app-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 4. TIPOGRAFIA ACESSÍVEL */
+h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-color);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+/* 5. SISTEMA DE BOTÕES GIGANTES (PADRÃO BEEGIS) */
+.btn {
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    padding: 25px 30px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transition: transform 0.1s;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border-bottom: 4px solid rgba(0,0,0,0.1);
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* CORES DOS BOTÕES */
+.btn-primary { background-color: var(--primary-btn); }
+.btn-secondary { background-color: var(--secondary-btn); }
+.btn-danger { background-color: var(--danger-btn); }
+
+/* ÍCONES PADRONIZADOS */
+.icon {
+    font-size: 3rem;
+    min-width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 6. COMPONENTE "CLIQUE PARA VOLTAR" (GLOBAL) */
+.btn-voltar {
+    background-color: var(--white);
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    align-self: flex-start; /* Fica à esquerda */
+    cursor: pointer;
+    box-shadow: 0 4px 0px var(--text-color); /* Efeito retro/acessível */
+}
+
+.btn-voltar:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+/* 7. LOGO PADRÃO */
+.logo {
+    width: 120px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+}

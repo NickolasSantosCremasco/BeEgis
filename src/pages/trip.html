@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BeEgis - Para onde vamos?</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/trip.css">
+</head>
+<body class="trip-page">
+    <div id="app-container" style="background-color: #DFFF9E;">
+        
+        <header>
+            <button class="btn-voltar" onclick="window.location.href='../../index.html'">
+                ← CLIQUE PARA VOLTAR
+            </button>
+        </header>
+
+        <main class="screen">
+            <h1>Legal, Para onde você irá hoje?</h1>
+            
+            <p style="font-weight: bold; margin-bottom: 10px;">Favoritos</p>
+            
+            <div class="destinos-grid">
+                <div class="card-destino" onclick="solicitarViagem('Hospital Albert Einstein')">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.o7z1kSKvf8crIEr4WOD4EwHaEY?pid=Api" alt="Hospital">
+                    <div class="card-info">
+                        <strong>Hospital Albert Einstein</strong>
+                        <span>Clique para ir →</span>
+                    </div>
+                </div>
+
+                <div class="card-destino" onclick="solicitarViagem('Casa do Filho')">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.19gSPKBdJLjeYcd44FyjmAHaE8?pid=Apig" alt="Casa do Filho">
+                    <div class="card-info">
+                        <strong>Casa do Filho</strong>
+                        <span>Clique para ir →</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-outro-destino" onclick="alert('Funcionalidade em breve!')">
+                Tem outro destino? <u>Clique aqui</u>
+            </button>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../src/script.js"></script>
+    <script>
+        // Animação de entrada dos cards em cascata
+        gsap.from(".card-destino", {
+            duration: 0.6,
+            x: 50,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "power2.out"
+        });
+
+        function solicitarViagem(destino) {
+            // Aqui é onde o BeEgis se comunica com o seu Python
+            console.log("Solicitando Uber para: " + destino);
+            // Por enquanto, redireciona para a tela de house (simulando o carro chegando)
+            window.location.href = 'house.html';
+        }
+    </script>
+</body>
+</html>

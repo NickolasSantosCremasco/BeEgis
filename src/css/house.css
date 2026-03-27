@@ -1,0 +1,79 @@
+/* CARD PRINCIPAL DE STATUS */
+.status-card {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Sombra sólida seguindo o padrão dos botões */
+    box-shadow: 0 8px 0px rgba(0,0,0,0.05); 
+    border: 3px solid var(--secondary-btn); /* Borda azul para indicar "Processamento/Andamento" */
+    margin-bottom: 25px;
+}
+
+/* IMAGEM DO VEÍCULO (RECONHECIMENTO RÁPIDO) */
+.car-image {
+    width: 100%;
+    max-width: 320px; /* Aumentado para destaque total */
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+}
+
+/* CONTAINER DE TEXTOS */
+.driver-info {
+    text-align: left;
+    width: 100%;
+    background: #fdfdfd;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.driver-info p {
+    font-size: 1.5rem; /* Aumentado para legibilidade */
+    margin: 15px 0;
+    color: var(--text-color);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* DESTAQUE DO TEMPO (PULSANTE) */
+.arrival-time strong {
+    color: var(--danger-btn); /* Vermelho para atenção */
+    font-size: 1.8rem;
+    display: inline-block;
+}
+
+/* DADOS DO MOTORISTA E CARRO */
+.driver-name strong, 
+.car-plate strong {
+    color: var(--text-color);
+    font-size: 1.8rem;
+    text-transform: uppercase; /* Facilita leitura da placa */
+    letter-spacing: 1px;
+}
+
+/* BOTÃO DE LOCALIZAÇÃO (ESTILO BEEGIS) */
+.btn-onde-esta {
+    background-color: var(--white);
+    border: 3px solid var(--secondary-btn);
+    color: var(--secondary-btn);
+    padding: 25px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    border-radius: 25px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 6px 0px var(--secondary-btn);
+    cursor: pointer;
+}
+
+.btn-onde-esta:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}

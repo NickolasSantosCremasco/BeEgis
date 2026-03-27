@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BeEgis - Voltando para Casa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/house.css">
+</head>
+<body class="house-page">
+    <div id="app-container" style="background-color: #DFFF9E;"> <header>
+            <button class="btn-voltar" onclick="window.location.href='../../index.html'">
+                ← CLIQUE PARA VOLTAR
+            </button>
+        </header>
+
+        <main class="screen">
+            <h1>Nada como o lar! Vamos ver as opções...</h1>
+            
+            <div class="status-card">
+                <img src="../src/img/carro-vermelho.png" alt="Carro Vermelho" class="car-image">
+                
+                <div class="driver-info">
+                    <p class="arrival-time">O carro chegará em: <strong>5min</strong></p>
+                    <p class="driver-name">Motorista: <strong>Cláudio</strong> 👤</p>
+                    <p class="car-plate">Placa: <strong>XXX-9999</strong></p>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary" style="margin-top: 20px; background-color: #ffffff; border: 3px solid #88B4E5;">
+                <span class="icon">📍</span> Onde está o carro?
+            </button>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../src/script.js"></script>
+    <script>
+        // Animação do card de status aparecendo
+        gsap.from(".status-card", {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            ease: "power3.out"
+        });
+
+        // Efeito de "pulsar" no tempo de chegada para prender a atenção
+        gsap.to(".arrival-time strong", {
+            scale: 1.1,
+            duration: 0.8,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
+        });
+    </script>
+</body>
+</html>

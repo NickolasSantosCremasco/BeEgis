@@ -1,0 +1,74 @@
+/* CONTAINER DE GRID */
+.destinos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Aumentado para evitar cliques duplos por erro */
+    margin-bottom: 30px;
+}
+
+/* O CARD DE DESTINO (ESTILO PREMIUM E ACESSÍVEL) */
+.card-destino {
+    background: var(--white);
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 0px rgba(0,0,0,0.1); /* Sombra sólida para parecer físico */
+    border: 2px solid rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+    width: 100%;
+}
+
+/* FEEDBACK DE CLIQUE */
+.card-destino:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+/* IMAGEM DO DESTINO (MAIS LARGA PARA RECONHECIMENTO) */
+.card-destino img {
+    width: 120px; /* Um pouco maior para facilitar a visão */
+    height: 120px;
+    object-fit: cover;
+    border-right: 3px solid var(--bg-color); /* Divisor usando a cor do fundo */
+}
+
+/* INFORMAÇÕES DO TEXTO */
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-info strong {
+    font-size: 1.5rem; /* Fonte maior para o nome do lugar */
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.card-info span {
+    font-size: 1.1rem; /* Subtexto mais legível */
+    color: var(--secondary-btn); /* Azul da marca para o guia */
+    font-weight: 600;
+}
+
+/* BOTÃO DE "OUTRO DESTINO" (MAIS VISÍVEL) */
+.btn-outro-destino {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px dashed var(--text-color);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-outro-destino u {
+    color: var(--secondary-btn);
+}

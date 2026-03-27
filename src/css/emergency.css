@@ -1,0 +1,77 @@
+/* CONTAINER DE EMERGÊNCIA (ADAPTAÇÃO DO GLOBAL) */
+.emergency-page #app-container {
+    background-color: var(--danger-btn); /* Fundo vermelho de alerta */
+}
+
+/* TÍTULO DE IMPACTO */
+.emergency-page h1 {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* GRID DE BOTÕES DE ALTA PRIORIDADE */
+.emergency-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+/* ESTILO DOS BOTÕES DE AÇÃO CRÍTICA */
+.btn-emergency-action {
+    height: 180px; /* Bem alto para não errar o toque */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 10px 0px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+    width: 100%;
+}
+
+.btn-emergency-action:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+/* CORES ESPECÍFICAS DE EMERGÊNCIA */
+.btn-filho {
+    background-color: var(--primary-btn); /* Verde para transmitir calma/contato familiar */
+    color: var(--text-color);
+}
+
+.btn-ambulancia {
+    background-color: var(--white); /* Branco para remeter a saúde/hospital */
+    color: var(--danger-btn); /* Texto vermelho para urgência médica */
+}
+
+/* TEXTOS DENTRO DO BOTÃO */
+.btn-emergency-action strong {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.btn-emergency-action span {
+    font-size: 1.1rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* ALERTA DE RODAPÉ (TEXTO DE APOIO) */
+.footer-alert {
+    margin-top: auto;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+    background: rgba(0,0,0,0.15);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    border: 1px dashed rgba(255,255,255,0.3);
+}
