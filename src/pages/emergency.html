@@ -39,7 +39,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="../src/script.js"></script>
+    <script src="../script.js"></script>
     <script>
         // Animação de Alerta com GSAP
         gsap.from(".btn-emergency-action", {
@@ -49,12 +49,6 @@
             stagger: 0.2,
             ease: "back.out(2)"
         });
-
-        // Função de exemplo para o alerta
-        function alertar(tipo) {
-            alert("Enviando alerta de " + tipo + " para o servidor BeEgis...");
-            // Aqui depois conectaremos com seu FastAPI em Python!
-        }
     </script>
 </body>
 </html>

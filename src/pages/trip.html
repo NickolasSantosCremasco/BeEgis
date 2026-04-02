@@ -46,7 +46,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="../src/script.js"></script>
+    <script src="../script.js"></script>
     <script>
         // Animação de entrada dos cards em cascata
         gsap.from(".card-destino", {
@@ -56,13 +56,6 @@
             stagger: 0.2,
             ease: "power2.out"
         });
-
-        function solicitarViagem(destino) {
-            // Aqui é onde o BeEgis se comunica com o seu Python
-            console.log("Solicitando Uber para: " + destino);
-            // Por enquanto, redireciona para a tela de house (simulando o carro chegando)
-            window.location.href = 'house.html';
-        }
     </script>
 </body>
 </html>

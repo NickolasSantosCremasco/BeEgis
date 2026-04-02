@@ -83,16 +83,22 @@ async function enviarAlertaServidor(tipo) {
         const data = await response.json();
         console.log("Resposta do Servidor:", data);
     } catch (error) {
-        console.error("Servidor offline. Certifique-se que o main.py está rodando.");
+        console.error("Servidor offline no IP informado.");
     }
 }
 
 // Na tela de Trip, quando clicar no card:
-async function solicitarUber(destinoNome) {
+async function solicitarViagem(destino) {
+    executarFeedbackTatico('click'); 
+    console.log('Solicitando Viagem')
+    const url = `http://localhost:8000/api/uber?local=${destino}`;   
     try {
-        await fetch(`http://localhost:8000/api/uber?destino=${destinoNome}`);
-        navigateTo('casa'); // Vai para a tela de acompanhamento
+       const response = await fetch(url)
+       const data = await response.json()
+       console.log('Resposta da API:', data)
+
+       if(data.status === "sucesso") navigateTo('casa');
     } catch (error) {
-        alert("Erro ao conectar com o BeEgis Desktop");
+        alert("A API está desligada! Rode o main.py primeiro");
     }
 }
