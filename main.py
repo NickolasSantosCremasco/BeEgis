@@ -6,7 +6,7 @@ import time
 
 app = FastAPI()
 
-# 1. Configuração de CORS (Libera o Front-end)
+# 1. Configuração de CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"], 
@@ -21,23 +21,23 @@ try:
 except Exception as e:
     print(f"❌ Falha na conexão: {e}")
 
-# 3. Seus Favoritos
+# 3. Favoritos (Ajuste os nomes para serem precisos)
 DESTINOS = {
-    "casa": "Rua Nome da Sua Rua, 123 - Bairro",
-    "hospital": "Hospital Israelita Albert Einstein Morumbi",
+    "casa": "Sua Rua aqui, 123",
+    "hospital": "Hospital Israelita Albert Einstein",
     "mercado": "Supermercado Extra"
 }
 
-# 4. Rota do Uber (Lógica de Seleção de Destino)
+# 4. Rota do Uber
 @app.get("/api/uber")
 async def acionar_uber(local: str):  
     try:
-        print(f"🚀 Iniciando processo para: {local}")
+        print(f"🚀 Iniciando Uber para: {local}")
         
         # Abre o Uber do zero
         d.app_start("com.ubercab", stop=True)
         
-        # Espera o botão "Para onde?" aparecer e clica
+        # Espera o campo "Para onde?" aparecer e clica
         if d(text="Para onde?").wait(timeout=15):
             d(text="Para onde?").click()
         else:
@@ -50,20 +50,24 @@ async def acionar_uber(local: str):
         print(f"✍️ Digitando: {endereco}")
         d.send_keys(endereco, clear=True)
         
-        # --- AJUSTE PARA CLICAR NO PRIMEIRO RESULTADO ---
-        print("⏳ Aguardando lista de sugestões...")
-        time.sleep(3) # Tempo para o Uber buscar os endereços na internet
+        # --- LÓGICA DE SELEÇÃO CORRIGIDA (Baseada no seu WEditor) ---
+        print("⏳ Aguardando resultados do Uber...")
+        time.sleep(5) # Tempo extra para a internet carregar a lista
 
-        # Tentativa de clicar no primeiro item da lista de resultados
-        # O Uber usa uma lista; clicamos no primeiro elemento que aparece na área de resultados
-        # Se o ID abaixo não funcionar, o d.click(500, 600) servirá como "clique manual" no topo da lista
-        if d(resourceId="com.ubercab:id/ub__location_search_results_list").exists:
-            print("🎯 Clicando no primeiro resultado da lista (via ID)")
-            d(resourceId="com.ubercab:id/ub__location_search_results_list").child(index=0).click()
+        # Tentativa 1: Procurar pelo texto na descrição (Content-desc)
+        # O Weditor mostrou que o endereço fica guardado aqui
+        resultado = d(descriptionContains=endereco)
+
+        if resultado.exists:
+            print(f"🎯 Resultado encontrado por descrição! Clicando...")
+            resultado.click()
+            
+        # Tentativa 2: Usar o clique proporcional que você extraiu do Weditor
+        # No seu print era (0.7, 0.295). Usamos 0.35 para pegar no centro da caixa.
         else:
-            print("🎯 Clicando no primeiro resultado (via coordenada)")
-            # Coordenada aproximada do primeiro item da lista no Moto G86
-            d.click(500, 600) 
+            print("🎯 Descrição não achada, usando clique certeiro por coordenada (Weditor)")
+            # 0.7 = 70% da largura | 0.35 = 35% da altura
+            d.click(0.7, 0.35) 
 
         return {"status": "sucesso", "local": endereco}
     except Exception as e:
